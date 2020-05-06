@@ -1,8 +1,12 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+
 const routes = require("./entries/routes");
 const { connect } = require("mongoose");
 
 const app = express();
+app.use(bodyParser.text());
+
 connect(process.env.MONGO_CONN_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
